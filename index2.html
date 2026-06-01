@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Verdon | Warm Terracotta Estate — A Legacy Among the Hills</title>
+  <!-- Tailwind CSS v4 CDN + Google Fonts + Font Awesome + AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FDF8F2;
+      color: #2D2A24;
+    }
+    h1, h2, h3, .serif-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .script-accent {
+      font-family: 'Caveat', cursive;
+      font-weight: 500;
+    }
+    .text-terracotta {
+      color: #C87A5A;
+    }
+    .bg-terracotta {
+      background-color: #C87A5A;
+    }
+    .border-terracotta {
+      border-color: #C87A5A;
+    }
+    .hover\:bg-terracotta-dark:hover {
+      background-color: #B06444;
+    }
+    .shadow-warm {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .stat-card {
+      backdrop-filter: blur(4px);
+      background: rgba(255,251,245,0.96);
+      transition: transform 0.2s ease;
+    }
+    .project-card {
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .step-connector:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -1.5rem;
+      top: 2rem;
+      font-size: 1.5rem;
+      color: #C87A5A;
+      opacity: 0.5;
+    }
+    @media (max-width: 1024px) {
+      .step-connector:not(:last-child)::after {
+        display: none;
+      }
+    }
+    .carousel-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .carousel-card {
+      scroll-snap-align: start;
+    }
+    .testimonial-card {
+      transition: all 0.3s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+    }
+    .award-item {
+      transition: all 0.2s;
+    }
+    .award-item:hover {
+      border-left-color: #C87A5A;
+      background: rgba(200,122,90,0.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation (overlaying hero) -->
+  <header class="absolute top-0 left-0 w-full z-30 py-5 px-6 md:px-10 bg-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap">
+      <div class="text-2xl md:text-3xl font-serif font-bold tracking-tight text-white drop-shadow-md">VERDON</div>
+      <div class="hidden lg:flex space-x-7 text-xs font-medium uppercase tracking-wider text-white/90">
+        <a href="#" class="hover:text-terracotta transition">Heritage</a>
+        <a href="#" class="hover:text-terracotta transition">Estate</a>
+        <a href="#" class="hover:text-terracotta transition">Chambers</a>
+        <a href="#" class="hover:text-terracotta transition">Experiences</a>
+        <a href="#" class="hover:text-terracotta transition">Residence</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hidden md:inline-block bg-terracotta text-white text-xs uppercase tracking-wider font-medium py-2.5 px-5 rounded-full shadow-md hover:bg-[#B06444] transition">Book a stay</a>
+        <button class="text-white text-xl focus:outline-none md:hidden"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with overlapping stats -->
+  <section class="relative min-h-[800px] flex items-start pt-36 pb-48 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format" alt="Modern luxury house dusk" class="w-full h-full object-cover object-center">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#2D2A24]/80 via-[#2D2A24]/40 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 w-full">
+      <div class="max-w-2xl" data-aos="fade-right">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">A Legacy Among<br>the Hills</h1>
+        <div class="script-accent text-2xl md:text-3xl text-terracotta mt-2">heritage & quiet permanence</div>
+        <p class="text-white/80 text-base md:text-lg mt-5 leading-relaxed max-w-lg">Where mist lingers over emerald slopes and time moves with quiet grace — a house shaped by lineage, land, and enduring elegance.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          <a href="#residence" class="bg-terracotta text-white px-7 py-3 rounded-full text-sm font-medium shadow-md hover:bg-[#B06444] transition inline-flex items-center gap-2">Discover the house <i class="fas fa-arrow-right text-sm"></i></a>
+          <div class="flex items-center gap-3">
+            <div class="flex -space-x-2">
+              <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/68.jpg" alt="avatar">
+              <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar">
+              <img class="w-8 h-8 rounded-full border-2 border-white" src="https://randomuser.me/api/portraits/women/44.jpg" alt="avatar">
+              <div class="w-8 h-8 rounded-full bg-terracotta/30 flex items-center justify-center text-[10px] font-bold text-white border-2 border-white">+120</div>
+            </div>
+            <span class="text-xs text-white/80 font-medium">>120 families found their legacy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-20 left-0 right-0 transform translate-y-1/2 z-20 px-6 md:px-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="stat-card bg-[#FFF9F0]/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg flex items-center gap-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-calendar-alt"></i></div>
+            <div><div class="text-2xl font-bold text-stone-800">10+ years</div><div class="text-xs text-stone-500">of heritage stewardship</div></div>
+          </div>
+          <div class="stat-card bg-[#FFF9F0]/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg flex items-center gap-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-home"></i></div>
+            <div><div class="text-2xl font-bold text-stone-800">since 1066</div><div class="text-xs text-stone-500">Norman lineage</div></div>
+          </div>
+          <div class="stat-card bg-[#FFF9F0]/95 backdrop-blur-sm rounded-2xl p-5 shadow-lg flex items-center gap-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-leaf"></i></div>
+            <div><div class="text-2xl font-bold text-stone-800">private estate</div><div class="text-xs text-stone-500">rolling hills & mist</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-32 bg-[#FDF8F2] mt-24 md:mt-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div data-aos="fade-right">
+          <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">The Verdon difference</span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-3 leading-tight">A house where history & serenity reside</h2>
+          <p class="text-stone-600 mt-5 leading-relaxed">Built upon centuries of noble lineage, The Verdon offers more than a stay — it offers quiet permanence. Stone walls, long corridors, and warm hearths create an atmosphere of composed elegance.</p>
+          <div class="mt-7 flex items-center gap-3">
+            <div class="bg-terracotta/10 rounded-full px-4 py-2 inline-flex items-center gap-2"><i class="fas fa-tree text-terracotta text-sm"></i><span class="text-xs font-medium text-stone-700">Natural materials only</span></div>
+            <div class="bg-terracotta/10 rounded-full px-4 py-2 inline-flex items-center gap-2"><i class="fas fa-feather-alt text-terracotta text-sm"></i><span class="text-xs font-medium text-stone-700">Art of stillness</span></div>
+          </div>
+          <a href="#residence" class="inline-flex items-center gap-2 text-terracotta font-medium mt-8 border-b border-terracotta/30 pb-1 hover:gap-3 transition">Learn about our philosophy <i class="fas fa-arrow-right text-xs"></i></a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+          <div class="bg-white rounded-2xl shadow-warm p-5 transition hover:shadow-md">
+            <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-crown"></i></div>
+            <h3 class="font-serif text-xl font-bold mt-3">Noble Origin</h3>
+            <p class="text-stone-500 text-sm mt-1">The Verdon lineage traces to Norman England, Baron Verdon — a legacy of stewardship.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-warm overflow-hidden transition hover:shadow-md">
+            <div class="p-5 pb-3">
+              <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-fireplace"></i></div>
+              <h3 class="font-serif text-xl font-bold mt-2">Warm Hearth Evenings</h3>
+              <p class="text-stone-500 text-sm">Conversations beside firelight, heritage tales & curated silence.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?q=80&w=1974&auto=format" alt="cozy interior" class="h-28 w-full object-cover">
+          </div>
+          <div class="bg-white rounded-2xl shadow-warm p-5 transition hover:shadow-md">
+            <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-mist"></i></div>
+            <h3 class="font-serif text-xl font-bold mt-3">Mist-Kissed Walks</h3>
+            <p class="text-stone-500 text-sm mt-1">Guided rambles through emerald slopes & ancient woodlands.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-warm overflow-hidden transition hover:shadow-md">
+            <div class="p-5 pb-3">
+              <div class="w-12 h-12 rounded-full bg-terracotta/15 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-archway"></i></div>
+              <h3 class="font-serif text-xl font-bold mt-2">Private Estate</h3>
+              <p class="text-stone-500 text-sm">Stone walls, long corridors, uninterrupted views of rolling green.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format" alt="estate hills" class="h-28 w-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 1: Our Heritage Timeline (Norman to Present) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="text-center max-w-3xl mx-auto mb-14" data-aos="fade-up">
+        <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">Centuries of legacy</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Our Heritage</h2>
+        <div class="w-16 h-px bg-terracotta/40 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format" alt="Historic manor" class="rounded-2xl shadow-xl w-full object-cover h-80">
+        </div>
+        <div data-aos="fade-left" class="space-y-6">
+          <div class="border-l-3 border-terracotta pl-5"><span class="text-2xl font-serif font-bold">1066 & The Conquest</span><p class="text-stone-500 text-sm mt-1">De Verdon family granted lands by William the Conqueror, establishing the noble line.</p></div>
+          <div class="border-l-3 border-terracotta/30 pl-5"><span class="text-2xl font-serif font-bold">14th Century · Baron Verdon</span><p class="text-stone-500 text-sm mt-1">Theobald de Verdon summoned to Parliament, formalizing the Barony.</p></div>
+          <div class="border-l-3 border-terracotta/30 pl-5"><span class="text-2xl font-serif font-bold">Present Day · The Verdon Estate</span><p class="text-stone-500 text-sm mt-1">A private country house preserving the spirit of stewardship, welcoming guests as part of its continuing story.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 2: Estate Gallery (3 columns) -->
+  <section class="py-24 bg-[#FDF8F2]">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+        <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">Visual chronicle</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Estate in frames</h2>
+        <div class="w-16 h-px bg-terracotta/40 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition duration-500" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format" class="w-full h-64 object-cover"></div>
+        <div class="rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition duration-500" data-aos="zoom-in" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format" class="w-full h-64 object-cover"></div>
+        <div class="rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition duration-500" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2070&auto=format" class="w-full h-64 object-cover"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Carousel (Rooms) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="flex flex-wrap justify-between items-end mb-12">
+        <div data-aos="fade-right">
+          <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">The chambers</span>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Rooms & Suites</h2>
+        </div>
+        <a href="#residence" class="text-terracotta font-medium text-sm flex items-center gap-1 hover:gap-2 transition">All suites <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="carousel-container flex gap-6 overflow-x-auto pb-6 snap-x" data-aos="fade-up">
+        <div class="carousel-card min-w-[280px] md:min-w-[320px] lg:min-w-[380px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 project-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1887&auto=format" alt="Baron's chamber" class="w-full h-64 object-cover">
+            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-stone-800 text-xs font-bold px-3 py-1 rounded-full">58 m² · valley view</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-xl font-bold text-stone-800">The Baron's Chamber</h3>
+            <p class="text-stone-500 text-sm mt-1">Four-poster bed, original oak beams & curated library.</p>
+            <div class="flex justify-end mt-4"><a href="#" class="text-terracotta text-sm font-medium flex items-center gap-1">Discover <i class="fas fa-arrow-right text-xs"></i></a></div>
+          </div>
+        </div>
+        <div class="carousel-card min-w-[280px] md:min-w-[320px] lg:min-w-[380px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 project-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format" alt="Mist suite" class="w-full h-64 object-cover">
+            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-stone-800 text-xs font-bold px-3 py-1 rounded-full">76 m² · panoramic hills</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-xl font-bold text-stone-800">The Mist Suite</h3>
+            <p class="text-stone-500 text-sm mt-1">Deep soaking tub, antique furnishings & private sitting room.</p>
+            <div class="flex justify-end mt-4"><a href="#" class="text-terracotta text-sm font-medium flex items-center gap-1">Discover <i class="fas fa-arrow-right text-xs"></i></a></div>
+          </div>
+        </div>
+        <div class="carousel-card min-w-[280px] md:min-w-[320px] lg:min-w-[380px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 project-card">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format" alt="Verdant room" class="w-full h-64 object-cover">
+            <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-stone-800 text-xs font-bold px-3 py-1 rounded-full">42 m² · garden wing</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-xl font-bold text-stone-800">The Verdant Room</h3>
+            <p class="text-stone-500 text-sm mt-1">Overlooking ancient yew walk, muted tones & natural textures.</p>
+            <div class="flex justify-end mt-4"><a href="#" class="text-terracotta text-sm font-medium flex items-center gap-1">Discover <i class="fas fa-arrow-right text-xs"></i></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-2 mt-8">
+        <div class="w-2 h-2 rounded-full bg-terracotta"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-24 bg-[#FDF8F2]">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="mb-14 text-center" data-aos="fade-up">
+        <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">The Verdon journey</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Experiences of quiet refinement</h2>
+        <div class="w-16 h-px bg-terracotta/40 mx-auto mt-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <div class="step-connector relative" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white rounded-2xl p-6 shadow-warm text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta text-2xl mx-auto"><i class="fas fa-sun"></i></div>
+            <div class="text-5xl font-serif font-bold text-terracotta/30 -mt-6">01</div>
+            <h3 class="font-serif text-xl font-bold mt-2">Slow mornings</h3>
+            <p class="text-stone-500 text-sm mt-2">Curated breakfast service, soft light across the hills.</p>
+          </div>
+        </div>
+        <div class="step-connector relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white rounded-2xl p-6 shadow-warm text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta text-2xl mx-auto"><i class="fas fa-tree"></i></div>
+            <div class="text-5xl font-serif font-bold text-terracotta/30 -mt-6">02</div>
+            <h3 class="font-serif text-xl font-bold mt-2">Mist walks</h3>
+            <p class="text-stone-500 text-sm mt-2">Guided rambles through ancient woodlands & emerald slopes.</p>
+          </div>
+        </div>
+        <div class="step-connector relative" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-white rounded-2xl p-6 shadow-warm text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta text-2xl mx-auto"><i class="fas fa-fire"></i></div>
+            <div class="text-5xl font-serif font-bold text-terracotta/30 -mt-6">03</div>
+            <h3 class="font-serif text-xl font-bold mt-2">Heritage evenings</h3>
+            <p class="text-stone-500 text-sm mt-2">Stories of the Verdons, whiskey & the great hearth.</p>
+          </div>
+        </div>
+        <div class="relative" data-aos="fade-up" data-aos-delay="400">
+          <div class="bg-white rounded-2xl p-6 shadow-warm text-center">
+            <div class="w-14 h-14 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta text-2xl mx-auto"><i class="fas fa-book-open"></i></div>
+            <div class="text-5xl font-serif font-bold text-terracotta/30 -mt-6">04</div>
+            <h3 class="font-serif text-xl font-bold mt-2">Library stillness</h3>
+            <p class="text-stone-500 text-sm mt-2">Curated chronicles, silence, and unhurried afternoons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 3: Testimonials (Guest voices) -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+        <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">Whispers of guests</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Kind words</h2>
+        <div class="w-16 h-px bg-terracotta/40 mx-auto mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="testimonial-card bg-[#FDF8F2] rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-quote-left text-terracotta/30 text-3xl"></i>
+          <p class="text-stone-600 italic mt-3">"Staying at The Verdon felt like stepping into a living poem. The silence, the mist — absolute restoration."</p>
+          <div class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/79.jpg" class="w-10 h-10 rounded-full"><div><div class="text-sm font-semibold">Eleanor Whitfield</div><div class="text-xs text-stone-400">Author, London</div></div></div>
+        </div>
+        <div class="testimonial-card bg-[#FDF8F2] rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-quote-left text-terracotta/30 text-3xl"></i>
+          <p class="text-stone-600 italic mt-3">"Heritage evenings by the hearth are unforgettable. The Verdons' legacy is truly alive in every stone."</p>
+          <div class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-full"><div><div class="text-sm font-semibold">James Ashworth</div><div class="text-xs text-stone-400">Historian, Oxford</div></div></div>
+        </div>
+        <div class="testimonial-card bg-[#FDF8F2] rounded-2xl p-6 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-quote-left text-terracotta/30 text-3xl"></i>
+          <p class="text-stone-600 italic mt-3">"A sanctuary of quiet luxury. The Mist Suite with its valley views is pure magic."</p>
+          <div class="mt-5 flex items-center gap-3"><img src="https://randomuser.me/api/portraits/women/33.jpg" class="w-10 h-10 rounded-full"><div><div class="text-sm font-semibold">Clara Beaumont</div><div class="text-xs text-stone-400">Designer, New York</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 4: Awards & Accolades -->
+  <section class="py-24 bg-[#FDF8F2]">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-14" data-aos="fade-up">
+        <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">Recognition</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mt-2">Awards & Accolades</h2>
+        <div class="w-16 h-px bg-terracotta/40 mx-auto mt-4"></div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="award-item bg-white rounded-xl p-5 text-center border-l-4 border-transparent" data-aos="flip-left"><i class="fas fa-trophy text-terracotta text-3xl mb-3"></i><div class="font-serif text-lg font-bold">World's Best Boutique Estate</div><div class="text-xs text-stone-400">Luxury Travel Awards 2024</div></div>
+        <div class="award-item bg-white rounded-xl p-5 text-center border-l-4 border-transparent" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-leaf text-terracotta text-3xl mb-3"></i><div class="font-serif text-lg font-bold">Heritage Preservation Prize</div><div class="text-xs text-stone-400">Historic Houses Association</div></div>
+        <div class="award-item bg-white rounded-xl p-5 text-center border-l-4 border-transparent" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-wine-glass-alt text-terracotta text-3xl mb-3"></i><div class="font-serif text-lg font-bold">Best Culinary Experience</div><div class="text-xs text-stone-400">Fine Dining Awards 2023</div></div>
+        <div class="award-item bg-white rounded-xl p-5 text-center border-l-4 border-transparent" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-spa text-terracotta text-3xl mb-3"></i><div class="font-serif text-lg font-bold">Sanctuary of Stillness</div><div class="text-xs text-stone-400">Wellness Tourism Award</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 5: Sustainability & Craftsmanship -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2070&auto=format" alt="Craftsmanship" class="rounded-2xl shadow-xl w-full h-80 object-cover">
+        </div>
+        <div data-aos="fade-left">
+          <span class="text-xs tracking-[0.2em] font-semibold text-terracotta uppercase">Ethos & earth</span>
+          <h2 class="text-4xl font-serif font-bold text-stone-800 mt-2">Sustainability & Craftsmanship</h2>
+          <div class="w-16 h-px bg-terracotta/40 my-5"></div>
+          <p class="text-stone-600 leading-relaxed">Every stone, every beam tells a story of mindful restoration. The Verdon honours local artisans, renewable materials, and the landscape that cradles it. From the rewilded meadows to the energy‑efficient warmth of our hearths, luxury and responsibility walk hand in hand.</p>
+          <div class="mt-6 flex gap-4"><i class="fas fa-recycle text-terracotta text-xl"></i><i class="fas fa-hand-holding-heart text-terracotta text-xl"></i><i class="fas fa-seedling text-terracotta text-xl"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact/CTA Section (existing, kept as 10th section) -->
+  <section id="contact" class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format" alt="Luxury living room interior" class="w-full h-full object-cover brightness-110">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#2D2A24]/80 to-[#2D2A24]/40"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-white leading-tight">Begin your legacy<br>at The Verdon</h2>
+          <p class="text-white/80 text-lg mt-4">Experience heritage as it was meant to be — intimate, composed, and enduring. Limited residencies preserve the estate’s soul.</p>
+          <a href="#residence" class="mt-8 inline-block bg-terracotta text-white px-8 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-[#B06444] transition">Request an invitation →</a>
+        </div>
+        <div class="space-y-5" data-aos="fade-left">
+          <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-phone-alt"></i></div>
+            <div><div class="font-medium text-stone-800">+44 (0)20 7911 1082</div><div class="text-xs text-stone-500">Concierge hours: 9am – 9pm daily</div></div>
+          </div>
+          <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-xl flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center text-terracotta text-xl"><i class="fas fa-envelope"></i></div>
+            <div><div class="font-medium text-stone-800">stay@theverdon.com</div><div class="text-xs text-stone-500">Response within 24 hours</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-12 border-t border-stone-100">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <span class="text-2xl font-serif font-bold text-stone-800">VERDON</span>
+          <p class="text-stone-400 text-xs mt-2">© The Verdon Estate · Est. in lineage of the Verdons</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-500">Explore</h4>
+          <ul class="mt-3 space-y-2 text-sm text-stone-500">
+            <li><a href="#" class="hover:text-terracotta transition">Heritage</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Estate</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Chambers</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Experiences</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-500">Services</h4>
+          <ul class="mt-3 space-y-2 text-sm text-stone-500">
+            <li><a href="#" class="hover:text-terracotta transition">Private dining</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Estate walks</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Curated stays</a></li>
+            <li><a href="#" class="hover:text-terracotta transition">Heritage evenings</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-stone-400 hover:text-terracotta text-lg"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-stone-400 hover:text-terracotta text-lg"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="text-stone-400 hover:text-terracotta text-lg"><i class="fab fa-x-twitter"></i></a>
+          </div>
+          <p class="text-stone-400 text-xs"><a href="#" class="hover:text-terracotta">Privacy Policy</a> · <a href="#" class="hover:text-terracotta">Legal</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: AOS + smooth scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out-quad' });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = this.getAttribute('href');
+        if (target === "#" || target === "") return;
+        const element = document.querySelector(target);
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

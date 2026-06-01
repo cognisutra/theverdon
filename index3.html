@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Hotel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#111;
+font-family:'Poppins',sans-serif;
+color:white;
+}
+
+h1,h2,h3{
+font-family:'Cormorant Garamond',serif;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1566073771259-6a8506099945');
+background-size:cover;
+background-position:center;
+}
+
+.gold{
+color:#c9a063;
+}
+
+.btn-gold{
+background:#c9a063;
+color:white;
+padding:14px 34px;
+transition:.4s;
+}
+
+.btn-gold:hover{
+background:#d6b074;
+transform:translateY(-3px);
+}
+
+.room-card img{
+transition:.5s;
+}
+
+.room-card:hover img{
+transform:scale(1.08);
+}
+
+.room-card:hover{
+border-color:#c9a063;
+}
+
+.booking{
+backdrop-filter:blur(12px);
+background:rgba(20,20,20,.85);
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Navbar -->
+
+<nav class="absolute top-0 left-0 w-full z-50 px-10 py-6 flex justify-between items-center">
+
+<div>
+<h2 class="text-3xl font-bold">ROYELLA</h2>
+</div>
+
+<ul class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Rooms</a></li>
+<li><a href="#">Pages</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+<button class="btn-gold">
+Book Now
+</button>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero flex items-center justify-center text-center">
+
+<div>
+
+<p class="uppercase tracking-[5px] text-gray-300 mb-4">
+Luxury Hotel & Resort
+</p>
+
+<h1 class="text-6xl md:text-8xl font-semibold max-w-4xl leading-tight">
+THE BEST LUXURY HOTEL
+<br>
+IN CALIFORNIA
+</h1>
+
+<button class="btn-gold mt-10">
+Book Room
+</button>
+
+</div>
+
+</section>
+
+<!-- Booking Bar -->
+
+<div class="max-w-6xl mx-auto relative -mt-16 z-30">
+
+<div class="booking p-8 grid md:grid-cols-5 gap-4 shadow-2xl">
+
+<input type="date" class="bg-transparent border border-gray-700 p-4">
+
+<input type="date" class="bg-transparent border border-gray-700 p-4">
+
+<select class="bg-transparent border border-gray-700 p-4">
+<option>Guests</option>
+<option>1 Guest</option>
+<option>2 Guests</option>
+</select>
+
+<select class="bg-transparent border border-gray-700 p-4">
+<option>Rooms</option>
+<option>1 Room</option>
+<option>2 Rooms</option>
+</select>
+
+<button class="btn-gold w-full">
+Book Now
+</button>
+
+</div>
+
+</div>
+
+<!-- Rooms Section -->
+
+<section class="py-32 bg-[#111]">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-16">
+
+<p class="gold uppercase tracking-[4px]">
+Luxury Rooms
+</p>
+
+<h2 class="text-5xl mt-4">
+ROYELLA'S ROOMS & SUITES
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="room-card border border-gray-800 overflow-hidden">
+
+<img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304" class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl">
+Luxury Family Room
+</h3>
+
+<p class="gold mt-2">
+$299 / Night
+</p>
+
+</div>
+
+</div>
+
+<div class="room-card border border-gray-800 overflow-hidden">
+
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl">
+Double Suite Room
+</h3>
+
+<p class="gold mt-2">
+$399 / Night
+</p>
+
+</div>
+
+</div>
+
+<div class="room-card border border-gray-800 overflow-hidden">
+
+<img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" class="h-72 w-full object-cover">
+
+<div class="p-6">
+
+<h3 class="text-3xl">
+Superior Bed Room
+</h3>
+
+<p class="gold mt-2">
+$499 / Night
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section class="py-32 bg-[#151515]">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="grid md:grid-cols-2 gap-16 items-center">
+
+<div>
+
+<img
+src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+class="rounded-lg shadow-2xl">
+
+</div>
+
+<div>
+
+<p class="gold uppercase tracking-[4px]">
+About Hotel
+</p>
+
+<h2 class="text-5xl mt-4 leading-tight">
+LUXURY BEST HOTEL IN CITY
+CALIFORNIA USA
+</h2>
+
+<p class="text-gray-400 mt-6 leading-8">
+Experience exceptional hospitality, luxury interiors,
+world-class amenities and premium accommodation designed
+for comfort and elegance.
+</p>
+
+<div class="flex gap-16 mt-10">
+
+<div>
+
+<h3 class="text-5xl gold">
+250+
+</h3>
+
+<p class="text-gray-400">
+Luxury Rooms
+</p>
+
+</div>
+
+<div>
+
+<h3 class="text-5xl gold">
+4.9
+</h3>
+
+<p class="text-gray-400">
+Customer Rating
+</p>
+
+</div>
+
+</div>
+
+<button class="btn-gold mt-10">
+Discover More
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-black py-12 text-center">
+
+<h2 class="text-4xl">
+ROYELLA
+</h2>
+
+<p class="text-gray-500 mt-4">
+Luxury Hotel & Resort
+</p>
+
+</footer>
+
+</body>
+</html>
