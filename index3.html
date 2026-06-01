@@ -125,6 +125,17 @@ section{padding:96px 24px}
 .room-meta{display:flex;flex-wrap:wrap;gap:24px;font-size:.875rem;color:rgba(42,42,42,.6)}
 .rooms-quote{margin-top:64px;text-align:center;color:rgba(42,42,42,.7);font-style:italic;line-height:1.9}
 
+/* GALLERY */
+.gallery{background:#fafaf8}
+.gallery .section-head .divider{margin-bottom:32px}
+.gallery-intro{max-width:640px;margin:0 auto;color:rgba(42,42,42,.8);line-height:1.9;text-align:center;margin-bottom:64px}
+.gallery-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1280px;margin:0 auto}
+@media(min-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+@media(min-width:1024px){.gallery-grid{grid-template-columns:repeat(3,1fr);gap:48px}}
+.gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.gallery-item:hover img{transform:scale(1.05)}
+
 /* EXPERIENCES */
 .experiences{background:#eeebe6}
 .experiences .section-head .divider{margin-bottom:32px}
@@ -179,11 +190,12 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <button class="nav-logo" onclick="goTo('hero')">The Verdon</button>
+    <button class="nav-logo" onclick="goTo('hero')"><img src="images/Verdon Logo HD.png" alt="The Verdon Logo" style="height:60px;width:auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));"/></button>
     <div class="nav-links">
       <button class="nav-link" onclick="goTo('heritage')">Heritage</button>
       <button class="nav-link" onclick="goTo('estate')">Estate</button>
       <button class="nav-link" onclick="goTo('rooms')">Rooms</button>
+      <button class="nav-link" onclick="goTo('gallery')">Gallery</button>
       <button class="nav-link" onclick="goTo('experiences')">Experiences</button>
       <button class="nav-book" onclick="goTo('booking')">Book</button>
     </div>
@@ -193,6 +205,7 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
     <button class="nav-link" onclick="goTo('heritage')">Heritage</button>
     <button class="nav-link" onclick="goTo('estate')">Estate</button>
     <button class="nav-link" onclick="goTo('rooms')">Rooms</button>
+    <button class="nav-link" onclick="goTo('gallery')">Gallery</button>
     <button class="nav-link" onclick="goTo('experiences')">Experiences</button>
     <button class="nav-book" onclick="goTo('booking')">Book</button>
   </div>
@@ -201,7 +214,7 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
 <!-- HERO -->
 <section id="hero" class="hero">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1768761442173-f441861062db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1920&q=80" alt="The Verdon Estate" />
+    <img src="images/WhatsApp Image 2026-06-02 at 00.51.25 (1).jpeg" alt="The Verdon Estate" />
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
@@ -229,7 +242,7 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
         <p>Today, that heritage finds new life among the hills.</p>
       </div>
       <div class="heritage-img reveal-r d4">
-        <img src="https://images.unsplash.com/photo-1762694913173-29bb6e5808d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="Stone Manor Architecture" />
+        <img src="images/WhatsApp Image 2026-06-02 at 00.50.24 (1).jpeg" alt="Stone Manor Architecture" />
       </div>
     </div>
     <div class="crest-wrap reveal d6">
@@ -243,7 +256,7 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
 
 <!-- ESTATE -->
 <section id="estate" class="estate">
-  <div class="estate-img reveal-fade"><img src="https://images.unsplash.com/photo-1680954445750-ce3adb2d87d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1920&q=80" alt="Rolling Green Hills" /></div>
+  <div class="estate-img reveal-fade"><img src="images/WhatsApp Image 2026-06-02 at 00.50.24 (2).jpeg" alt="Rolling Green Hills" /></div>
   <div class="estate-inner">
     <div class="section-head reveal">
       <h2>The Estate</h2>
@@ -284,19 +297,38 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
     </div>
     <div class="rooms-grid">
       <div class="room reveal d2">
-        <div class="room-img"><img src="https://images.unsplash.com/photo-1770033138638-fec483a30a13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="Heritage Suite" /></div>
+        <div class="room-img"><img src="images/WhatsApp Image 2026-06-02 at 00.50.24.jpeg" alt="Heritage Suite" /></div>
         <h3>Heritage Suite</h3>
         <p class="room-desc">Natural textures. Muted tones. Antique accents. Modern comfort, discreetly placed.</p>
         <div class="room-meta"><span>King Bed</span><span>•</span><span>Garden View</span><span>•</span><span>Private Terrace</span></div>
       </div>
       <div class="room reveal d3">
-        <div class="room-img"><img src="https://images.unsplash.com/photo-1603039531759-1a1bbe4f9f94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="Fireside Chamber" /></div>
+        <div class="room-img"><img src="images/WhatsApp Image 2026-06-02 at 00.50.25 (1).jpeg" alt="Fireside Chamber" /></div>
         <h3>Fireside Chamber</h3>
         <p class="room-desc">Stone hearth. Long shadows. Warm evenings that drift into silence.</p>
         <div class="room-meta"><span>Queen Bed</span><span>•</span><span>Hill View</span><span>•</span><span>Original Fireplace</span></div>
       </div>
     </div>
     <p class="rooms-quote reveal d4">Designed not to impress loudly — but to linger quietly.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery">
+  <div class="container-lg">
+    <div class="section-head reveal">
+      <h2>Gallery</h2>
+      <div class="divider"></div>
+      <p class="gallery-intro" style="margin-top:32px">Glimpses of elegance, heritage, and timeless beauty</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal d2"><img src="images/WhatsApp Image 2026-06-02 at 00.50.23.jpeg" alt="Gallery Image 1" /></div>
+      <div class="gallery-item reveal d3"><img src="images/WhatsApp Image 2026-06-02 at 00.50.24.jpeg" alt="Gallery Image 2" /></div>
+      <div class="gallery-item reveal d4"><img src="images/WhatsApp Image 2026-06-02 at 00.50.25 (1).jpeg" alt="Gallery Image 3" /></div>
+      <div class="gallery-item reveal d2"><img src="images/WhatsApp Image 2026-06-02 at 00.50.25.jpeg" alt="Gallery Image 4" /></div>
+      <div class="gallery-item reveal d3"><img src="images/WhatsApp Image 2026-06-02 at 00.50.26.jpeg" alt="Gallery Image 5" /></div>
+      <div class="gallery-item reveal d4"><img src="images/WhatsApp Image 2026-06-02 at 00.50.27.jpeg" alt="Gallery Image 6" /></div>
+    </div>
   </div>
 </section>
 
@@ -309,7 +341,7 @@ footer .copy{font-size:.75rem;color:rgba(42,42,42,.4);margin-top:32px}
       <p class="exp-tag" style="margin-top:32px">Experiences of Quiet Refinement</p>
     </div>
     <div class="exp-grid">
-      <div class="exp-img reveal-l d2"><img src="https://images.unsplash.com/photo-1767469852365-7e120172744c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80" alt="Afternoon Tea Service" /></div>
+      <div class="exp-img reveal-l d2"><img src="images/WhatsApp Image 2026-06-02 at 00.50.25 (2).jpeg" alt="Afternoon Tea Service" /></div>
       <div class="exp-list reveal-r d3">
         <div class="exp-item"><h3>Private Estate Dining</h3><p>Candlelight and seasonal ingredients, curated to your preference</p></div>
         <div class="exp-item"><h3>Afternoon Tea</h3><p>Overlooking the hills with heritage china and quiet conversation</p></div>
