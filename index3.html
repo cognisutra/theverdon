@@ -1,1314 +1,371 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Verdon — A Legacy Among the Hills</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "Montserrat", sans-serif;
-        background: #fafaf8;
-        color: #2a2a2a;
-        font-weight: 300;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Cormorant", serif;
-        font-weight: 400;
-        line-height: 1.15;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-      button {
-        font: inherit;
-        color: inherit;
-        background: none;
-        border: 0;
-        cursor: pointer;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      .italic {
-        font-style: italic;
-      }
-      .divider {
-        width: 96px;
-        height: 1px;
-        background: #2a2a2a;
-        margin: 0 auto;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Verdon | Legacy Among the Hills — Golden & Green Estate</title>
+  <!-- Tailwind CSS v4 (browser) + AOS + Font Awesome + Google Fonts -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* custom luxury overrides & golden/green theme */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FCF9F2;
+      color: #1E2A24;
+    }
+    h1, h2, h3, h4, .serif-heading, .font-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    /* Gold & Emerald palette */
+    :root {
+      --gold-primary: #C89F5C;
+      --gold-dark: #A67C3B;
+      --emerald-deep: #1F3B2C;
+      --emerald-soft: #2D5541;
+      --cream-light: #FCF9F2;
+      --stone-mist: #E8E2D4;
+    }
+    .text-gold {
+      color: var(--gold-primary);
+    }
+    .border-gold {
+      border-color: var(--gold-primary);
+    }
+    .bg-gold {
+      background-color: var(--gold-primary);
+    }
+    .bg-emerald-deep {
+      background-color: var(--emerald-deep);
+    }
+    .from-gold-glow {
+      background: linear-gradient(135deg, rgba(200,159,92,0.1) 0%, rgba(31,59,44,0.05) 100%);
+    }
+    .hero-gradient {
+      background: linear-gradient(120deg, rgba(15, 30, 22, 0.65) 0%, rgba(0, 0, 0, 0.35) 100%);
+    }
+    .gold-button {
+      background: var(--gold-primary);
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid var(--gold-primary);
+    }
+    .gold-button:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.2);
+    }
+    .outline-gold {
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+      transition: all 0.3s;
+    }
+    .outline-gold:hover {
+      background: var(--gold-primary);
+      color: white;
+    }
+    .gold-divider {
+      height: 2px;
+      width: 70px;
+      background: linear-gradient(90deg, var(--gold-primary), #C89F5C, #E2C28B);
+      margin: 1rem 0;
+    }
+    .gold-divider-center {
+      height: 2px;
+      width: 70px;
+      background: linear-gradient(90deg, var(--gold-primary), #E2C28B);
+      margin: 1rem auto;
+    }
+    .card-luxury {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(2px);
+      border-bottom: 3px solid var(--gold-primary);
+      transition: all 0.4s;
+    }
+    .card-luxury:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(31, 59, 44, 0.15);
+    }
+    .quote-gold {
+      border-left: 3px solid var(--gold-primary);
+      background: rgba(200,159,92,0.05);
+    }
+    ::selection {
+      background: var(--gold-primary);
+      color: #1E2A24;
+    }
+    .bg-mist-emerald {
+      background: #F0EFEA;
+    }
+    .stillness-overlay {
+      background: linear-gradient(135deg, rgba(31,59,44,0.7) 0%, rgba(0,0,0,0.5) 100%);
+    }
+    footer a {
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--gold-primary);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
 
-      /* NAV */
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        transition:
-          background 0.3s ease,
-          box-shadow 0.3s ease,
-          backdrop-filter 0.3s ease;
-      }
-      .nav.scrolled {
-        background: rgba(250, 250, 248, 0.95);
-        backdrop-filter: blur(6px);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      }
-      .nav-inner {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 24px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .nav-logo {
-        font-size: 1.25rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-      }
-      .nav-links {
-        display: none;
-        align-items: center;
-        gap: 32px;
-      }
-      .nav-link {
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        transition: opacity 0.2s;
-      }
-      .nav-link:hover {
-        opacity: 0.6;
-      }
-      .nav-book {
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 12px 32px;
-        border: 1px solid #2a2a2a;
-        transition: all 0.3s;
-      }
-      .nav-book:hover {
-        background: #2a2a2a;
-        color: #fafaf8;
-      }
-      .nav-toggle {
-        font-size: 0.75rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .mobile-menu {
-        display: none;
-        background: #fafaf8;
-        border-top: 1px solid rgba(42, 42, 42, 0.1);
-        padding: 24px;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .mobile-menu.open {
-        display: flex;
-      }
-      .mobile-menu .nav-link,
-      .mobile-menu .nav-book {
-        text-align: left;
-      }
-      .mobile-menu .nav-book {
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .nav-inner {
-          height: 96px;
-          padding: 0 48px;
-        }
-        .nav-links {
-          display: flex;
-        }
-        .nav-toggle {
-          display: none;
-        }
-        .mobile-menu {
-          display: none !important;
-        }
-      }
+  <!-- NAVIGATION: refined gold & green accent -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-wrap items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-3xl tracking-wider font-serif font-bold text-emerald-deep">VERDON</span>
+        <span class="hidden md:inline-block w-px h-6 bg-gold/40 mx-2"></span>
+        <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold hidden md:block">Legacy Estate</span>
+      </div>
+      <div class="flex space-x-6 md:space-x-10 text-sm font-medium text-stone-700">
+        <a href="#noble" class="hover:text-gold transition duration-300">Heritage</a>
+        <a href="#estate" class="hover:text-gold transition duration-300">Estate</a>
+        <a href="#rooms" class="hover:text-gold transition duration-300">Rooms</a>
+        <a href="#experiences" class="hover:text-gold transition duration-300">Experiences</a>
+        <a href="#stillness" class="hover:text-gold transition duration-300">Stillness</a>
+        <a href="#residence" class="hidden md:block text-gold font-medium border-b-2 border-gold">Residence</a>
+      </div>
+    </div>
+  </nav>
 
-      /* HERO */
-      .hero {
-        position: relative;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-      }
-      .hero-bg {
-        position: absolute;
-        inset: 0;
-      }
-      .hero-bg img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(10, 10, 10, 0.4);
-      }
-      .hero-content {
-        position: relative;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 24px;
-        text-align: center;
-      }
-      .hero-inner {
-        max-width: 896px;
-      }
-      .hero h1 {
-        font-size: 3rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #fafaf8;
-        margin-bottom: 32px;
-      }
-      .hero-tag {
-        font-size: 1.25rem;
-        color: rgba(250, 250, 248, 0.9);
-        font-style: italic;
-        letter-spacing: 0.05em;
-        margin-bottom: 48px;
-        font-family: "Cormorant", serif;
-      }
-      .hero-desc {
-        font-size: 1rem;
-        color: #fafaf8;
-        line-height: 1.7;
-        max-width: 640px;
-        margin: 0 auto;
-      }
-      .scroll-indicator {
-        position: absolute;
-        bottom: 48px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1px;
-        height: 64px;
-        background: rgba(250, 250, 248, 0.6);
-        animation: scrollPulse 2s ease-in-out infinite;
-      }
-      @keyframes scrollPulse {
-        0%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        50% {
-          transform: translateX(-50%) translateY(10px);
-        }
-      }
-      @media (min-width: 768px) {
-        .hero h1 {
-          font-size: 5rem;
-        }
-        .hero-tag {
-          font-size: 1.5rem;
-        }
-        .hero-desc {
-          font-size: 1.125rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .hero h1 {
-          font-size: 6rem;
-        }
-      }
+  <!-- HERO SECTION: Golden light + emerald hills -->
+  <section class="relative h-screen min-h-[720px] flex items-center justify-center text-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format" alt="Emerald misty hills golden hour" class="w-full h-full object-cover object-center brightness-90">
+      <div class="hero-gradient absolute inset-0"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-white" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+      <div class="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-gold text-xs uppercase tracking-wider mb-4">A Living Heritage</div>
+      <h1 class="text-6xl md:text-8xl font-serif font-bold tracking-wide drop-shadow-lg">THE VERDON</h1>
+      <p class="text-xl md:text-2xl mt-4 font-light tracking-wide italic text-white/95">A Legacy Among the Hills</p>
+      <div class="w-24 h-px bg-gold/60 mx-auto my-6"></div>
+      <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-white/95">Where mist lingers over emerald slopes and time moves with quiet grace, The Verdon stands — a house shaped by lineage, land, and legacy.</p>
+      <div class="mt-10">
+        <a href="#residence" class="inline-block px-9 py-3 bg-gold text-emerald-deep font-semibold hover:bg-gold-dark hover:text-white transition-all duration-300 text-sm uppercase tracking-wider shadow-lg rounded-sm">Discover the House</a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
+      <i class="fas fa-chevron-down text-white/70 text-xl"></i>
+    </div>
+  </section>
 
-      /* Reveal animations */
-      .reveal {
-        opacity: 0;
-        transform: translateY(50px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: none;
-      }
-      .reveal-l {
-        opacity: 0;
-        transform: translateX(-30px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-      .reveal-l.in {
-        opacity: 1;
-        transform: none;
-      }
-      .reveal-r {
-        opacity: 0;
-        transform: translateX(30px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-      .reveal-r.in {
-        opacity: 1;
-        transform: none;
-      }
-      .reveal-fade {
-        opacity: 0;
-        transition: opacity 1s ease;
-      }
-      .reveal-fade.in {
-        opacity: 1;
-      }
-      .d2 {
-        transition-delay: 0.2s;
-      }
-      .d3 {
-        transition-delay: 0.3s;
-      }
-      .d4 {
-        transition-delay: 0.4s;
-      }
-      .d6 {
-        transition-delay: 0.6s;
-      }
-
-      /* Section helpers */
-      section {
-        padding: 96px 24px;
-      }
-      @media (min-width: 1024px) {
-        section {
-          padding: 128px 48px;
-        }
-      }
-      .container {
-        max-width: 1152px;
-        margin: 0 auto;
-      }
-      .container-lg {
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      .container-md {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
-      .section-head {
-        text-align: center;
-        margin-bottom: 80px;
-      }
-      .section-head h2 {
-        font-size: 2.25rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-      }
-      @media (min-width: 768px) {
-        .section-head h2 {
-          font-size: 3rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .section-head h2 {
-          font-size: 3.75rem;
-        }
-      }
-
-      /* HERITAGE */
-      .heritage {
-        background: #fafaf8;
-      }
-      .heritage-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        align-items: center;
-      }
-      @media (min-width: 768px) {
-        .heritage-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-        }
-      }
-      @media (min-width: 1024px) {
-        .heritage-grid {
-          gap: 80px;
-        }
-      }
-      .heritage-text p {
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.9;
-        margin-bottom: 24px;
-      }
-      .heritage-text p:last-child {
-        padding-top: 16px;
-        font-style: italic;
-        margin-bottom: 0;
-      }
-      .heritage-img {
-        aspect-ratio: 4/5;
-        overflow: hidden;
-      }
-      .heritage-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .crest {
-        display: inline-block;
-        padding: 24px 48px;
-        border: 1px solid rgba(42, 42, 42, 0.2);
-        margin: 80px auto 0;
-        text-align: center;
-      }
-      .crest-wrap {
-        text-align: center;
-      }
-      .crest-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: rgba(42, 42, 42, 0.6);
-      }
-      .crest-year {
-        font-size: 1.875rem;
-        letter-spacing: 0.05em;
-        margin-top: 8px;
-        font-family: "Cormorant", serif;
-      }
-
-      /* ESTATE */
-      .estate {
-        background: #eeebe6;
-        padding: 96px 0;
-      }
-      @media (min-width: 1024px) {
-        .estate {
-          padding: 128px 0;
-        }
-      }
-      .estate-img {
-        position: relative;
-        height: 60vh;
-        margin-bottom: 80px;
-        overflow: hidden;
-      }
-      @media (min-width: 768px) {
-        .estate-img {
-          height: 70vh;
-        }
-      }
-      .estate-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .estate-inner {
-        max-width: 1152px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-      @media (min-width: 1024px) {
-        .estate-inner {
-          padding: 0 48px;
-        }
-      }
-      .section-head .divider {
-        margin-top: 0;
-      }
-      .estate-text {
-        max-width: 768px;
-        margin: 0 auto;
-        text-align: center;
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.9;
-      }
-      .estate-text p {
-        margin-bottom: 24px;
-      }
-      .estate-text p:last-child {
-        font-style: italic;
-        padding-top: 16px;
-        margin-bottom: 0;
-      }
-      .features {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 80px;
-      }
-      @media (min-width: 768px) {
-        .features {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 48px;
-        }
-      }
-      .feature {
-        text-align: center;
-      }
-      .feature-icon {
-        width: 64px;
-        height: 64px;
-        margin: 0 auto 16px;
-        border: 1px solid rgba(42, 42, 42, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .feature-icon svg {
-        width: 32px;
-        height: 32px;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 1;
-      }
-      .feature-label {
-        font-size: 0.875rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-      .feature-sub {
-        font-size: 0.875rem;
-        color: rgba(42, 42, 42, 0.6);
-      }
-
-      /* ROOMS */
-      .rooms {
-        background: #fafaf8;
-      }
-      .rooms .section-head .divider {
-        margin-bottom: 32px;
-      }
-      .rooms-intro {
-        max-width: 640px;
-        margin: 0 auto;
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.9;
-      }
-      .rooms-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      @media (min-width: 768px) {
-        .rooms-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 64px;
-        }
-      }
-      .room-img {
-        position: relative;
-        aspect-ratio: 4/3;
-        overflow: hidden;
-        margin-bottom: 24px;
-      }
-      .room-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-      }
-      .room:hover .room-img img {
-        transform: scale(1.05);
-      }
-      .room h3 {
-        font-size: 1.5rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-      .room-desc {
-        color: rgba(42, 42, 42, 0.7);
-        line-height: 1.6;
-        margin-bottom: 16px;
-      }
-      .room-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        font-size: 0.875rem;
-        color: rgba(42, 42, 42, 0.6);
-      }
-      .rooms-quote {
-        margin-top: 64px;
-        text-align: center;
-        color: rgba(42, 42, 42, 0.7);
-        font-style: italic;
-        line-height: 1.9;
-      }
-
-      /* GALLERY */
-      .gallery {
-        background: #fafaf8;
-      }
-      .gallery .section-head .divider {
-        margin-bottom: 32px;
-      }
-      .gallery-intro {
-        max-width: 640px;
-        margin: 0 auto;
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.9;
-        text-align: center;
-        margin-bottom: 64px;
-      }
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      @media (min-width: 768px) {
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 32px;
-        }
-      }
-      @media (min-width: 1024px) {
-        .gallery-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 48px;
-        }
-      }
-      .gallery-item {
-        position: relative;
-        aspect-ratio: 4/3;
-        overflow: hidden;
-      }
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-      }
-      .gallery-item:hover img {
-        transform: scale(1.05);
-      }
-
-      /* EXPERIENCES */
-      .experiences {
-        background: #eeebe6;
-      }
-      .experiences .section-head .divider {
-        margin-bottom: 32px;
-      }
-      .exp-tag {
-        font-size: 1.25rem;
-        color: rgba(42, 42, 42, 0.7);
-        font-style: italic;
-        font-family: "Cormorant", serif;
-      }
-      .exp-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        align-items: center;
-        margin-bottom: 80px;
-        max-width: 1280px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      @media (min-width: 768px) {
-        .exp-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 64px;
-        }
-      }
-      .exp-img {
-        aspect-ratio: 4/3;
-        overflow: hidden;
-      }
-      .exp-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .exp-list {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-      }
-      .exp-item {
-        border-left: 2px solid rgba(42, 42, 42, 0.2);
-        padding-left: 24px;
-      }
-      .exp-item h3 {
-        font-size: 1.25rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-      .exp-item p {
-        color: rgba(42, 42, 42, 0.7);
-        line-height: 1.6;
-      }
-      .exp-quote-wrap {
-        max-width: 768px;
-        margin: 0 auto;
-      }
-      .exp-quote {
-        background: #fafaf8;
-        padding: 48px;
-        text-align: center;
-      }
-      .exp-quote p {
-        font-size: 1.5rem;
-        letter-spacing: 0.02em;
-        margin-bottom: 24px;
-        font-style: italic;
-        font-family: "Cormorant", serif;
-        line-height: 1.4;
-      }
-      @media (min-width: 768px) {
-        .exp-quote p {
-          font-size: 1.875rem;
-        }
-      }
-      .exp-quote .divider {
-        width: 64px;
-      }
-
-      /* BOOKING */
-      .booking {
-        background: #fafaf8;
-        padding: 96px 24px;
-      }
-      @media (min-width: 1024px) {
-        .booking {
-          padding: 128px 48px;
-        }
-      }
-      .booking-inner {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
-      .booking-head {
-        text-align: center;
-        margin-bottom: 64px;
-      }
-      .booking-head h2 {
-        font-size: 2.25rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-      }
-      @media (min-width: 768px) {
-        .booking-head h2 {
-          font-size: 3rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .booking-head h2 {
-          font-size: 3.75rem;
-        }
-      }
-      .booking-head .divider {
-        margin-bottom: 32px;
-      }
-      .booking-head p {
-        max-width: 640px;
-        margin: 0 auto 16px;
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.9;
-      }
-      .booking-card {
-        background: #eeebe6;
-        padding: 32px;
-        margin-bottom: 64px;
-      }
-      @media (min-width: 1024px) {
-        .booking-card {
-          padding: 48px;
-        }
-      }
-      .booking-card h3 {
-        font-size: 1.5rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        text-align: center;
-        margin-bottom: 32px;
-      }
-      .form-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 24px;
-      }
-      @media (min-width: 768px) {
-        .form-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      .field label {
-        display: block;
-        font-size: 0.875rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-      .field input,
-      .field textarea {
-        width: 100%;
-        padding: 12px 16px;
-        background: #fafaf8;
-        border: 1px solid rgba(42, 42, 42, 0.2);
-        font: inherit;
-        color: inherit;
-        transition: border-color 0.2s;
-        resize: none;
-      }
-      .field input:focus,
-      .field textarea:focus {
-        outline: none;
-        border-color: #2a2a2a;
-      }
-      .submit-wrap {
-        text-align: center;
-        padding-top: 16px;
-      }
-      .submit {
-        padding: 16px 64px;
-        background: #2a2a2a;
-        color: #fafaf8;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        transition: background 0.2s;
-      }
-      .submit:hover {
-        background: rgba(42, 42, 42, 0.9);
-      }
-      .booking-note {
-        text-align: center;
-      }
-      .booking-note p:first-child {
-        font-size: 0.875rem;
-        color: rgba(42, 42, 42, 0.6);
-        letter-spacing: 0.05em;
-        margin-bottom: 16px;
-        line-height: 1.7;
-      }
-      .booking-note p:last-child {
-        color: rgba(42, 42, 42, 0.8);
-        line-height: 1.7;
-        padding-top: 16px;
-      }
-
-      footer {
-        margin-top: 96px;
-        padding-top: 48px;
-        border-top: 1px solid rgba(42, 42, 42, 0.1);
-        text-align: center;
-      }
-      footer .brand {
-        font-size: 1.5rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-        font-family: "Cormorant", serif;
-      }
-      footer .legacy {
-        font-size: 0.875rem;
-        color: rgba(42, 42, 42, 0.6);
-        letter-spacing: 0.1em;
-        margin-bottom: 8px;
-      }
-      footer .copy {
-        font-size: 0.75rem;
-        color: rgba(42, 42, 42, 0.4);
-        margin-top: 32px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav class="nav" id="nav">
-      <div class="nav-inner">
-        <button class="nav-logo" onclick="goTo('hero')">
-          <img
-            src="images/logov3.png"
-            alt="The Verdon Logo"
-            style="
-              height: 96px;
-              width: 96px;
-              filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-            "
-          />
-        </button>
-        <div class="nav-links">
-          <button class="nav-link" onclick="goTo('heritage')">Heritage</button>
-          <button class="nav-link" onclick="goTo('estate')">Estate</button>
-          <button class="nav-link" onclick="goTo('rooms')">Rooms</button>
-          <button class="nav-link" onclick="goTo('gallery')">Gallery</button>
-          <button class="nav-link" onclick="goTo('experiences')">
-            Experiences
-          </button>
-          <button class="nav-book" onclick="goTo('booking')">Book</button>
+  <!-- NOBLE ORIGIN: golden + refined green -->
+  <section id="noble" class="py-28 bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <div data-aos="fade-right" data-aos-duration="800">
+          <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Norman Lineage</span>
+          <h2 class="text-5xl md:text-6xl font-serif font-bold mt-3 text-emerald-deep">A House of<br>Noble Origin</h2>
+          <div class="gold-divider mt-4"></div>
+          <p class="text-stone-700 leading-relaxed text-lg mt-5">The name Verdon traces back to the Norman Conquest of England, when lands were granted to the de Verdon family under William the Conqueror. By the 12th and 13th centuries, the Verdons were among England’s respected landholders. Theobald de Verdon, summoned to Parliament in the early 14th century, carried the title <span class="text-gold font-semibold">Baron Verdon</span> — affirming a legacy rooted in nobility and stewardship.</p>
+          <p class="text-stone-700 leading-relaxed mt-5">Though centuries have passed and titles have faded, the spirit of Verdon endures — not in grandeur alone, but in quiet permanence. Today, that heritage finds new life among the hills.</p>
         </div>
-        <button class="nav-toggle" id="navToggle">Menu</button>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <button class="nav-link" onclick="goTo('heritage')">Heritage</button>
-        <button class="nav-link" onclick="goTo('estate')">Estate</button>
-        <button class="nav-link" onclick="goTo('rooms')">Rooms</button>
-        <button class="nav-link" onclick="goTo('gallery')">Gallery</button>
-        <button class="nav-link" onclick="goTo('experiences')">
-          Experiences
-        </button>
-        <button class="nav-book" onclick="goTo('booking')">Book</button>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-bg">
-        <img
-          src="images/WhatsApp Image 2026-06-02 at 00.51.25 (1).jpeg"
-          alt="The Verdon Estate"
-        />
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <div class="hero-inner">
-          <h1 class="reveal in">The Verdon</h1>
-          <p class="hero-tag reveal in d2">A Legacy Among the Hills</p>
-          <p class="hero-desc reveal in d3">
-            Where mist lingers over emerald slopes and time moves with quiet
-            grace, The Verdon stands — a house shaped by lineage, land, and
-            legacy.
-          </p>
+        <div class="relative h-[450px] rounded-lg overflow-hidden shadow-2xl" data-aos="fade-left" data-aos-duration="900">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format" alt="Historic stone manor with ivy" class="w-full h-full object-cover">
+          <div class="absolute inset-0 border border-white/20 rounded-lg pointer-events-none"></div>
         </div>
       </div>
-      <div class="scroll-indicator"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HERITAGE -->
-    <section id="heritage" class="heritage">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>A House of Noble Origin</h2>
-          <div class="divider"></div>
-        </div>
-        <div class="heritage-grid">
-          <div class="heritage-text reveal-l d2">
-            <p>
-              The name Verdon traces back to the Norman Conquest of England,
-              when lands were granted to the de Verdon family under the reign of
-              William the Conqueror.
-            </p>
-            <p>
-              By the 12th and 13th centuries, the Verdons were among England's
-              respected landholders. Theobald de Verdon, summoned to Parliament
-              in the early 14th century, carried the title Baron Verdon —
-              affirming a legacy rooted in nobility and stewardship.
-            </p>
-            <p>
-              Though centuries have passed and titles have faded, the spirit of
-              Verdon endures — not in grandeur alone, but in quiet permanence.
-            </p>
-            <p>Today, that heritage finds new life among the hills.</p>
-          </div>
-          <div class="heritage-img reveal-r d4">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.24 (1).jpeg"
-              alt="Stone Manor Architecture"
-            />
+  <!-- THE ESTATE: rich green backdrop & gold accents -->
+  <section id="estate" class="py-28 bg-[#F0ECE3]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1" data-aos="fade-right" data-aos-duration="800">
+          <div class="rounded-xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format" alt="Long corridor stone walls antique" class="w-full h-[420px] object-cover">
           </div>
         </div>
-        <div class="crest-wrap reveal d6">
-          <div class="crest">
-            <p class="crest-label">Est. Norman Conquest</p>
-            <p class="crest-year">1066</p>
+        <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="800">
+          <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">The Grounds</span>
+          <h2 class="text-5xl md:text-6xl font-serif font-bold mt-3 text-emerald-deep">The Estate</h2>
+          <div class="gold-divider mt-3"></div>
+          <p class="text-stone-800 leading-relaxed text-lg">Set amidst rolling green landscapes and wrapped in gentle mist, The Verdon is a private country house where stone walls, long corridors, and warm hearths create an atmosphere of composed elegance.</p>
+          <div class="quote-gold p-4 my-6 italic text-stone-700 border-l-4 bg-gold/5 text-base font-medium">Here, mornings begin with soft light across the hills. Afternoons drift into unhurried conversation. Evenings settle beside firelight and silence.</div>
+          <p class="text-stone-800 leading-relaxed">This is not a hotel. It is a house — one that welcomes you as part of its continuing story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS & SUITES (Golden-green luxury cards) -->
+  <section id="rooms" class="py-28 bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Chambers of Character</span>
+        <h2 class="text-5xl md:text-6xl font-serif font-bold mt-2 text-emerald-deep">Rooms & Suites</h2>
+        <div class="gold-divider-center"></div>
+        <p class="text-stone-600 mt-4 text-lg">Each chamber individually composed — generous proportions, heritage detailing, and views toward endless green. Natural textures, antique accents, modern comfort placed discreetly. Designed not to impress loudly — but to linger quietly.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="card-luxury bg-white rounded-xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1887&auto=format" alt="Baron chamber" class="w-full h-full object-cover transition duration-700 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif font-bold text-emerald-deep">The Baron's Chamber</h3>
+            <p class="text-gold text-sm font-semibold mt-1">Four-poster · valley views</p>
+            <p class="text-stone-600 mt-3">High ceilings, original oak beams, curated library. Linen drapes and limestone hearth invite quiet reflection. Private bath with copper tub.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card-luxury bg-white rounded-xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format" alt="Mist suite" class="w-full h-full object-cover transition duration-700 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif font-bold text-emerald-deep">The Mist Suite</h3>
+            <p class="text-gold text-sm font-semibold mt-1">Panoramic hills · private sitting room</p>
+            <p class="text-stone-600 mt-3">Wrapped in mist and morning light, this suite offers generous proportions, a deep soaking tub, and antique furnishings that honor the Verdons’ legacy.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card-luxury bg-white rounded-xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format" alt="Verdant room" class="w-full h-full object-cover transition duration-700 hover:scale-105">
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-serif font-bold text-emerald-deep">The Verdant Room</h3>
+            <p class="text-gold text-sm font-semibold mt-1">Garden wing · muted elegance</p>
+            <p class="text-stone-600 mt-3">Overlooking ancient yew walk, quiet tones and natural textures create a sanctuary of unhurried peace. Discreet modern comfort, feather-soft bedding.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ESTATE -->
-    <section id="estate" class="estate">
-      <div class="estate-img reveal-fade">
-        <img
-          src="images/WhatsApp Image 2026-06-02 at 00.50.24 (2).jpeg"
-          alt="Rolling Green Hills"
-        />
+  <!-- EXPERIENCES: Golden medallion + deep green luxury -->
+  <section id="experiences" class="py-28 bg-[#F0ECE3]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">The art of being</span>
+        <h2 class="text-5xl md:text-6xl font-serif font-bold mt-2 text-emerald-deep">Quiet Refinement</h2>
+        <div class="gold-divider-center"></div>
+        <p class="text-stone-700 mt-4 text-lg">Luxury is not displayed — it is felt.</p>
       </div>
-      <div class="estate-inner">
-        <div class="section-head reveal">
-          <h2>The Estate</h2>
-          <div class="divider"></div>
+      <div class="grid md:grid-cols-3 gap-10 gap-y-12">
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-candle-grill"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Private Dining</h3>
+          <p class="text-stone-600">Candlelit dinners from estate gardens, served in the Long Gallery under ancient oak beams.</p>
         </div>
-        <div class="estate-text reveal d2">
-          <p>
-            Set amidst rolling green landscapes and wrapped in gentle mist, The
-            Verdon is a private country house where stone walls, long corridors,
-            and warm hearths create an atmosphere of composed elegance.
-          </p>
-          <p>
-            Here, mornings begin with soft light across the hills. Afternoons
-            drift into unhurried conversation. Evenings settle beside firelight
-            and silence.
-          </p>
-          <p>
-            This is not a hotel. It is a house — one that welcomes you as part
-            of its continuing story.
-          </p>
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="150">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-leaf"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Afternoon Tea</h3>
+          <p class="text-stone-600">Overlooking the hills, with fine china, fresh scones, and silence drifting through casement windows.</p>
         </div>
-        <div class="features reveal d4">
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-            </div>
-            <p class="feature-label">Private House</p>
-            <p class="feature-sub">Limited occupancy</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <p class="feature-label">Rolling Hills</p>
-            <p class="feature-sub">Endless green</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
-                />
-              </svg>
-            </div>
-            <p class="feature-label">Historic Hearths</p>
-            <p class="feature-sub">Fireside evenings</p>
-          </div>
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-person-walking"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Mist-Kissed Walks</h3>
+          <p class="text-stone-600">Guided rambles through emerald slopes, ancient woodlands, and forgotten footpaths.</p>
+        </div>
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="250">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-fire"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Heritage Evenings</h3>
+          <p class="text-stone-600">Stories of the Verdons, historic documents, and whiskey beside the great hearth.</p>
+        </div>
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-mug-hot"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Slow Mornings</h3>
+          <p class="text-stone-600">Curated breakfast service, pressed linens, stone-ground coffee, first light across the valley.</p>
+        </div>
+        <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="350">
+          <div class="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center text-gold text-3xl border border-gold/20"><i class="fas fa-book"></i></div>
+          <h3 class="text-2xl font-serif font-bold mt-5 text-emerald-deep">Library & Stillness</h3>
+          <p class="text-stone-600">Leather-bound chronicles, poetry, natural history. Silent afternoons by the casement.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ROOMS -->
-    <section id="rooms" class="rooms">
-      <div class="container-lg">
-        <div class="section-head reveal">
-          <h2>Rooms &amp; Suites</h2>
-          <div class="divider"></div>
-          <p class="rooms-intro" style="margin-top: 32px">
-            Each chamber at The Verdon is individually composed — with generous
-            proportions, heritage detailing, and views that open toward endless
-            green.
-          </p>
+  <!-- ART OF STILLNESS: Gold and emerald overlay -->
+  <section id="stillness" class="relative py-36 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2070&auto=format" alt="Mist over hills estate" class="w-full h-full object-cover">
+      <div class="stillness-overlay absolute inset-0 bg-emerald-deep/60 mix-blend-multiply"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white" data-aos="zoom-in" data-aos-duration="1000">
+      <i class="fas fa-feather-alt text-5xl text-gold mb-6"></i>
+      <h2 class="text-6xl md:text-7xl font-serif font-bold">The Art of Stillness</h2>
+      <div class="w-20 h-px bg-gold mx-auto my-6"></div>
+      <p class="text-xl md:text-2xl leading-relaxed font-light">There is a rare privilege in stepping away from noise. In rediscovering space. In allowing history, land, and silence to restore balance.</p>
+      <p class="text-lg mt-7 font-serif italic text-gold/90">The Verdon offers more than a stay. It offers time — uninterrupted, unhurried, and entirely your own.</p>
+    </div>
+  </section>
+
+  <!-- RESIDENCE: Book your residence with gold luxury -->
+  <section id="residence" class="py-28 bg-cream-light">
+    <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="900">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">Private stay</span>
+      <h2 class="text-5xl md:text-6xl font-serif font-bold mt-2 text-emerald-deep">Book Your Residence</h2>
+      <div class="gold-divider-center"></div>
+      <p class="text-stone-700 text-lg max-w-2xl mx-auto leading-relaxed">A limited number of rooms are available at any time, preserving the estate’s privacy and sense of belonging. We invite you to experience heritage as it was meant to be — intimate, composed, and enduring.</p>
+      
+      <div class="mt-14 bg-white p-9 md:p-12 rounded-2xl shadow-2xl border-t-4 border-gold max-w-xl mx-auto">
+        <p class="text-emerald-deep font-serif text-xl"><i class="fas fa-calendar-alt text-gold mr-2"></i> Inquire for availability</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-5 justify-center">
+          <button onclick="alert('Please direct enquiries to stay@theverdon.com or call +44 (0)20 7911 1082 — our residence curator will respond within 24 hours.')" class="gold-button px-9 py-3 uppercase tracking-wide text-sm font-semibold rounded-full shadow-md">Request invitation</button>
+          <button onclick="alert('The Verdon Estate welcomes your personal enquiry. We shall send a digital portfolio and availability calendar.')" class="outline-gold px-9 py-3 uppercase tracking-wide text-sm font-semibold rounded-full bg-transparent text-gold">Download brochure</button>
         </div>
-        <div class="rooms-grid">
-          <div class="room reveal d2">
-            <div class="room-img">
-              <img
-                src="images/WhatsApp Image 2026-06-02 at 00.50.24.jpeg"
-                alt="Heritage Suite"
-              />
-            </div>
-            <h3>Heritage Suite</h3>
-            <p class="room-desc">
-              Natural textures. Muted tones. Antique accents. Modern comfort,
-              discreetly placed.
-            </p>
-            <div class="room-meta">
-              <span>King Bed</span><span>•</span><span>Garden View</span
-              ><span>•</span><span>Private Terrace</span>
-            </div>
-          </div>
-          <div class="room reveal d3">
-            <div class="room-img">
-              <img
-                src="images/WhatsApp Image 2026-06-02 at 00.50.25 (1).jpeg"
-                alt="Fireside Chamber"
-              />
-            </div>
-            <h3>Fireside Chamber</h3>
-            <p class="room-desc">
-              Stone hearth. Long shadows. Warm evenings that drift into silence.
-            </p>
-            <div class="room-meta">
-              <span>Queen Bed</span><span>•</span><span>Hill View</span
-              ><span>•</span><span>Original Fireplace</span>
-            </div>
-          </div>
-        </div>
-        <p class="rooms-quote reveal d4">
-          Designed not to impress loudly — but to linger quietly.
-        </p>
+        <p class="text-xs text-stone-400 mt-8">Limited residencies · Personal curator · Uninterrupted silence</p>
       </div>
-    </section>
+      <p class="text-stone-500 text-sm mt-9 italic tracking-wide">Discover The Verdon — A legacy among the hills.</p>
+    </div>
+  </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="gallery">
-      <div class="container-lg">
-        <div class="section-head reveal">
-          <h2>Gallery</h2>
-          <div class="divider"></div>
-          <p class="gallery-intro" style="margin-top: 32px">
-            Glimpses of elegance, heritage, and timeless beauty
-          </p>
+  <!-- FOOTER with gold/green refinement -->
+  <footer class="border-t border-stone-200 bg-white py-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <span class="text-3xl font-serif font-bold text-emerald-deep">VERDON</span>
+          <p class="text-stone-500 text-xs tracking-wider mt-1">© The Verdon Estate · Est. in lineage of the Verdons</p>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-item reveal d2">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.23.jpeg"
-              alt="Gallery Image 1"
-            />
-          </div>
-          <div class="gallery-item reveal d3">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.24.jpeg"
-              alt="Gallery Image 2"
-            />
-          </div>
-          <div class="gallery-item reveal d4">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.25 (1).jpeg"
-              alt="Gallery Image 3"
-            />
-          </div>
-          <div class="gallery-item reveal d2">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.25.jpeg"
-              alt="Gallery Image 4"
-            />
-          </div>
-          <div class="gallery-item reveal d3">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.26.jpeg"
-              alt="Gallery Image 5"
-            />
-          </div>
-          <div class="gallery-item reveal d4">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.27.jpeg"
-              alt="Gallery Image 6"
-            />
-          </div>
+        <div class="flex gap-8 text-stone-500 text-sm font-medium">
+          <a href="#" class="hover:text-gold transition">Heritage</a>
+          <a href="#" class="hover:text-gold transition">Privacy</a>
+          <a href="#" class="hover:text-gold transition">The Library</a>
+          <a href="#" class="hover:text-gold transition">Press</a>
+        </div>
+        <div class="flex space-x-6 text-stone-400">
+          <i class="fab fa-instagram hover:text-gold cursor-pointer transition text-xl"></i>
+          <i class="fab fa-pinterest hover:text-gold cursor-pointer transition text-xl"></i>
+          <i class="fab fa-x-twitter hover:text-gold cursor-pointer transition text-xl"></i>
         </div>
       </div>
-    </section>
+      <div class="mt-8 text-center text-stone-400 text-xs max-w-2xl mx-auto italic font-serif">"Where mist lingers over emerald slopes and time moves with quiet grace — a house shaped by lineage, land, and legacy."</div>
+    </div>
+  </footer>
 
-    <!-- EXPERIENCES -->
-    <section id="experiences" class="experiences">
-      <div class="container-lg">
-        <div class="section-head reveal">
-          <h2>Experiences</h2>
-          <div class="divider"></div>
-          <p class="exp-tag" style="margin-top: 32px">
-            Experiences of Quiet Refinement
-          </p>
-        </div>
-        <div class="exp-grid">
-          <div class="exp-img reveal-l d2">
-            <img
-              src="images/WhatsApp Image 2026-06-02 at 00.50.25 (2).jpeg"
-              alt="Afternoon Tea Service"
-            />
-          </div>
-          <div class="exp-list reveal-r d3">
-            <div class="exp-item">
-              <h3>Private Estate Dining</h3>
-              <p>
-                Candlelight and seasonal ingredients, curated to your preference
-              </p>
-            </div>
-            <div class="exp-item">
-              <h3>Afternoon Tea</h3>
-              <p>
-                Overlooking the hills with heritage china and quiet conversation
-              </p>
-            </div>
-            <div class="exp-item">
-              <h3>Guided Walks</h3>
-              <p>Through mist-kissed landscapes with our estate keeper</p>
-            </div>
-            <div class="exp-item">
-              <h3>Heritage Evenings</h3>
-              <p>Beside the hearth with stories of lineage and land</p>
-            </div>
-            <div class="exp-item">
-              <h3>Curated Breakfast</h3>
-              <p>Slow mornings with locally sourced provisions</p>
-            </div>
-          </div>
-        </div>
-        <div class="exp-quote-wrap reveal d4">
-          <div class="exp-quote">
-            <p>"At The Verdon, luxury is not displayed — it is felt."</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BOOKING -->
-    <section id="booking" class="booking">
-      <div class="booking-inner">
-        <div class="booking-head reveal">
-          <h2>The Art of Stillness</h2>
-          <div class="divider"></div>
-          <p>
-            There is a rare privilege in stepping away from noise. In
-            rediscovering space. In allowing history, land, and silence to
-            restore balance.
-          </p>
-          <p
-            class="italic"
-            style="
-              font-family: &quot;Cormorant&quot;, serif;
-              font-size: 1.05rem;
-            "
-          >
-            The Verdon offers more than a stay. It offers time — uninterrupted,
-            unhurried, and entirely your own.
-          </p>
-        </div>
-        <div class="booking-card reveal d2">
-          <h3>Book Your Residence</h3>
-          <form id="bookForm">
-            <div class="form-grid">
-              <div class="field">
-                <label>Name</label><input type="text" required />
-              </div>
-              <div class="field">
-                <label>Email</label><input type="email" required />
-              </div>
-            </div>
-            <div class="form-grid">
-              <div class="field">
-                <label>Phone</label><input type="tel" required />
-              </div>
-              <div class="field">
-                <label>Number of Guests</label
-                ><input type="number" min="1" max="10" required />
-              </div>
-            </div>
-            <div class="form-grid">
-              <div class="field">
-                <label>Arrival Date</label><input type="date" required />
-              </div>
-              <div class="field">
-                <label>Departure Date</label><input type="date" required />
-              </div>
-            </div>
-            <div class="field" style="margin-bottom: 24px">
-              <label>Special Requests</label
-              ><textarea
-                rows="4"
-                placeholder="Dietary requirements, preferences, or any questions..."
-              ></textarea>
-            </div>
-            <div class="submit-wrap">
-              <button type="submit" class="submit">Submit Inquiry</button>
-            </div>
-          </form>
-        </div>
-        <div class="booking-note reveal d4">
-          <p>
-            A limited number of rooms are available at any time,<br />preserving
-            the estate's privacy and sense of belonging.
-          </p>
-          <p>
-            We invite you to experience heritage as it was meant to be —<br />intimate,
-            composed, and enduring.
-          </p>
-        </div>
-        <footer class="reveal d6">
-          <p class="brand">The Verdon</p>
-          <p class="legacy">A LEGACY AMONG THE HILLS</p>
-          <p class="copy">© 2026 The Verdon Estate. All rights reserved.</p>
-        </footer>
-      </div>
-    </section>
-
-    <script>
-      const nav = document.getElementById("nav");
-      addEventListener("scroll", () => {
-        nav.classList.toggle("scrolled", scrollY > 50);
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 120,
+      easing: 'ease-out-cubic'
+    });
+    // smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
-      const toggle = document.getElementById("navToggle");
-      const mobile = document.getElementById("mobileMenu");
-      toggle.addEventListener("click", () => {
-        const open = mobile.classList.toggle("open");
-        toggle.textContent = open ? "Close" : "Menu";
-      });
-      function goTo(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-        mobile.classList.remove("open");
-        toggle.textContent = "Menu";
-      }
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("in");
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.15 },
-      );
-      document
-        .querySelectorAll(".reveal,.reveal-l,.reveal-r,.reveal-fade")
-        .forEach((el) => {
-          if (!el.classList.contains("in")) io.observe(el);
-        });
-      document.getElementById("bookForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert(
-          "Thank you for your interest. We will contact you shortly to confirm your residence.",
-        );
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
